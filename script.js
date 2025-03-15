@@ -1,28 +1,30 @@
 async function downloadReel() {
-    let videoUrl = document.getElementById("videoUrl").value;
-
-    if (!videoUrl.includes("instagram.com/reel/")) { 
-        alert("Please enter a valid Instagram Reel URL."); 
-        return; 
+    const url = document.getElementById("reelUrl").value;
+    if (!url) {
+        alert("Please enter a valid Instagram Reel URL");
+        return;
     }
-
+    
+    const apiUrl = `https://rapidapi.com/codecrest8/api/instagram-reels-downloader2?url=${encodeURIComponent(url)}`;
+    
     try {
-        let response = await fetch(`https://api.akarsh.me/instagram?url=${encodeURIComponent(videoUrl)}`);
-        let data = await response.json();
-
+        const response = await fetch(apiUrl, {
+            method: 'GET',
+            headers: {
+                'X-RapidAPI-Host': 'codecrest8.api.rapidapi.com',
+                'X-RapidAPI-Key': 'YOUR_API_KEY_HERE'
+            }
+        });
+        
+        const data = await response.json();
+        
         if (data.success) {
-            document.getElementById("videoPreview").innerHTML = `
-                <video src="${data.video}" controls width="100%"></video>
-                <br>
-                <a href="${data.video}" download class="download-btn">Download Reel</a>
-            `;
+            document.getElementById("result").innerHTML = `<video src="${data.download_url}" controls></video>`;
         } else {
-            alert("Error fetching video. Try again.");
+            alert("Failed to fetch video. Try again.");
         }
     } catch (error) {
         console.error(error);
-        alert("Failed to fetch video.");
+        alert("Error fetching data.");
     }
 }
-
-function toggleDarkMode() { document.body.classList.toggle("dark-mode"); }
