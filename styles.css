@@ -1,9 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
-body { font-family: 'Poppins', sans-serif; text-align: center; background-color: #f9f9f9; color: #333; margin: 0; padding: 0; transition: all 0.3s ease; }
-header { background: linear-gradient(45deg, #e1306c, #fd1d1d, #c13584); padding: 15px; color: white; display: flex; align-items: center; justify-content: center; gap: 10px; }
-.logo { width: 50px; height: auto; }
+body { font-family: Arial, sans-serif; text-align: center; background-color: #f9f9f9; color: #333; margin: 0; padding: 0; }
+header { background-color: #e1306c; padding: 15px; color: white; font-size: 24px; }
 .container { max-width: 400px; margin: 50px auto; background: white; padding: 20px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); border-radius: 10px; }
-h1 { font-weight: 600; }
 .input-box { display: flex; gap: 10px; margin-top: 15px; }
 input { flex: 1; padding: 10px; border: 1px solid #ddd; border-radius: 5px; }
 button { padding: 10px 15px; border: none; cursor: pointer; border-radius: 5px; background-color: #e1306c; color: white; font-weight: bold; transition: 0.3s; }
